@@ -1,0 +1,34 @@
+<app-header></app-header>
+
+<div class="container w-75 p-5">
+
+  <div class="card mb-3 p-3 bg-body-tertiary shadow" style="max-width: 100%;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img [src]="product.image" class="img-fluid rounded-start w-100" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2 class="card-title">{{product.title.length>22?product.title.slice(0,22)+"...":product.title}} <span style="font-size: 18px;">- {{product.rating?.rate}}</span><span
+              [ngClass]="product.rating.rate>=4?'c1':'c2'" class="" style="font-size: 18px;"> <i
+                class="fa-solid fa-star ps-2"></i></span><span class="ps-3"
+              style="font-size: 18px;">({{product.rating?.count}} Rating)</span></h2>
+          <hr>
+          <div class="bg-body-secondary px-3 py-3">
+            <span>Price : <span class="fw-bolder fs-6">${{product.price}}</span></span> <br>
+            <span>Category :<span class="fw-bolder fs-6"> {{product.category}}</span></span>
+          </div> <br>
+          <div class="bg-body-secondary px-3 py-4">
+            <p class="card-text">{{product.description}}</p>
+
+          </div>
+          <div class="d-flex justify-content-between pt-4">
+            <button (click)="addToCart(product)" class="btn btn-outline-danger" type="button">Add to Cart <i
+                class="fa-solid fa-cart-shopping"></i></button>
+            <button (click)="addToWishlist(product.id,product.title,product.price,product.description,product.category,product.image,product.rating)" class="btn btn-outline-success" type="button">Add to <i class="fa-regular fa-heart"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

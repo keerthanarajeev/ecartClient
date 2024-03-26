@@ -1,0 +1,42 @@
+<app-header></app-header>
+
+
+<div *ngIf="products.length<=0" class="container text-center p-5">
+
+    <img src="https://i.postimg.cc/G2L5twhB/Wishr.jpg" class="w-25" alt="">
+
+    <h4 class="text-danger mt-3">Your Wishlist is Empty!</h4>
+    <button class="btn btn-secondary mt-3">Add More</button>
+
+</div>
+
+<!--------------------------->
+
+<div *ngIf="products.length>0" class="container my-5">
+
+    <div class="row">
+        <div *ngFor="let i of products" class="card col-lg-6 m-3 ms-2" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img [src]="i.image" class="w-100 img-fluid rounded-start p-3" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.title.length>22?i.title.slice(0,22)+"...":i.title}}</h5>
+                        <p class="card-text"> {{i.category}}</p>
+                        <h3>${{i.price}}</h3>
+
+                        <div class="d-flex justify-content-between my-4">
+                            <button (click)="addToCart(i)" class="btn btn-light border">
+                                <i class="fa-solid fa-cart-plus fs-4 text-dark"></i>
+                            </button>
+                            <button (click)="removeWishlistdata(i._id)" class="btn btn-light border">
+                                <i class="fa-solid fa-heart-circle-xmark fs-4 text-danger"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

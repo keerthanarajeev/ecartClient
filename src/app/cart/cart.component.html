@@ -1,0 +1,62 @@
+<app-header></app-header>
+
+
+<div *ngIf="products.length==0" class="container text-center p-5">
+
+    <img src="https://i.postimg.cc/9Xwxf1nK/emptycart-removebg-preview.png" class="w-25" alt="">
+
+    <h4 class="text-danger mt-3">Your Cart is Empty!</h4>
+    <button class="btn btn-secondary mt-3">Add More</button>
+
+</div>
+
+<div *ngIf="products.length!=0" class="">
+    <div class=" row p-3 my-5">
+        <div class="col-lg-9">
+            <div class="row">
+                <div *ngFor="let i of products" class="col-lg-6">
+                    <div class="card mb-3 p-3" style="max-width: 100%;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img style="height: 200px;" [src]="i.image" class="w-100" alt="...">
+                            </div>
+                            <div class="col-md-8 text-center">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{i.title.length>20?i.title.slice(0,20)+"...":i.title}}</h5>
+                                    <p class="card-text">{{i.category}}</p>
+                                    <h3>${{i.price}}</h3>
+
+                                    <div class="d-flex justify-content-between my-4">
+                                        <div class="d-flex">
+                                            <button (click)="decrement(i._id)" class="btn fw-bolder">
+                                                -
+                                            </button>
+                                            <input type="num" class="form-control text-center" id="InputQuantity"
+                                                [value]="i.quantity" style="max-width: 3rem;" readonly>
+
+                                            <button (click)="increment(i._id)" class="btn fw-bolder">
+                                                +
+                                            </button>
+                                        </div>
+                                        <button (click)="deleteItem(i._id)" class="btn btn-light border px-4">
+                                            <i class="fa-solid fa-trash fs-4 text-danger"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="border shadow-lg p-5 text-center bg-dark rounded-3">
+                <h4 class="text-secondary">
+                    Total Price <span class="text-white">$ {{totalPrice}}</span>
+                </h4>
+                <button (click)="checkOut()" class="btn btn-outline-light w-100 my-3">Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>

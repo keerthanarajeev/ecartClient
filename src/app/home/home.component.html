@@ -1,0 +1,51 @@
+<app-header></app-header>
+
+<div class="conatiner">
+
+  <div class="row">
+    <div class="col-lg-6 p-5 ">
+      <div class="p-5 mt-3">
+        <h2>Shop Online With Us</h2>
+        <span class="pt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus repellendus excepturi
+          voluptates dolor repellat voluptatem vitae sed quo ullam, cumque tempore culpa sapiente laboriosam expedita
+          unde aperiam esse eos rem.</span>
+      </div>
+    </div>
+
+    <div class="col-lg-6 p-5">
+      <img src="https://i.postimg.cc/MGsCRxjx/removebg-preview.png" class="w-75" alt="">
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="row ">
+
+  <h1 class="text-center p-3">Products</h1>
+
+  <div *ngFor="let i of allProducts" class="rounded col-lg-3 col-md-6 p-1 mx-4 mt-5 shadow" style="width: 17rem;">
+    <a routerLink="singleview/{{i._id}}">
+      <img [src]="i.image" class="card-img-top mt-4 img-fluid w-100 p-2" alt="..." style="height: 249px;">
+
+    </a>
+    <div class="card-body text-center">
+      <h5 class="card-title text-dark">{{i.title.length>22?i.title.slice(0,22)+"...":i.title}}</h5>
+      <p class="card-text text-center">{{i.category}}</p>
+      <h4 class="text-center">${{i.price}}</h4>
+      <div class="d-flex justify-content-between my-1">
+
+        <button class="btn" (click)="addToWishlist(i.id,i.title,i.price,i.description,i.category,i.image,i.rating)">
+          <i class="fa-regular fa-heart pe-5 text-danger"></i>
+        </button>
+
+        <button class="btn" (click)="addToCart(i)">
+          <i class="fa-solid fa-cart-shopping ps-5"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

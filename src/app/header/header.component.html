@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg px-5 py-2">
+  <div class="container-fluid ">
+    <a class="navbar-brand text-light" href="#">
+      <img
+        src="https://i.postimg.cc/pdVcM49h/png-transparent-shopping-cart-computer-icons-online-shopping-shopping-cart-angle-shopping-cart-softw.png"
+        alt="Logo" width="40" height="35" class="d-inline-block align-text-top">
+      Shoppy
+    </a>
+    <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon text-light"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="">
+        <div class="input-group w-100 ">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input [(ngModel)]="sData" (keyup)="sendData($event)" type="text" id="s1" name="searchdata"
+            class="form-control " placeholder="Search here..." aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+      </form>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+        <li class="nav-item">
+          <a routerLink="/wishlist" class="nav-link active text-danger" aria-current="page" href="#"><i
+              class="fa-solid fa-heart"></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/cart" class="nav-link text-light" href="#"><i
+              class="fa-solid fa-cart-shopping"></i><b> {{cartCount}}</b></a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="!login" routerLink="/login" class="nav-link text-light" href="#"><span class=""><i
+                class="fa-solid fa-user me-2"></i>Login</span>
+          </a>
+        </li>
+        <li (click)="logout()">
+          <a *ngIf="login" routerLink="" class="nav-link text-light" href="#"><span class=""><i
+                class="fa-solid fa-user me-2"></i>Logout</span>
+          </a>
+        </li>
+
+
+
+      </ul>
+
+
+
+    </div>
+  </div>
+</nav>

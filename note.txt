@@ -1,0 +1,94 @@
+Mongo DB
+--------
+
+It is a database used to store large amount of data permenantly
+
+Defference between mdb and sql
+
+
+_______________________________________________________________________________________
+|        SQL                              |                 MDB                        |
+|_________________________________________|____________________________________________|
+
+- Relational database                        - Document Oriented NoSql DB
+- store data in table as rows and            - collection of json documents
+  columns              
+- fixed schema                               - dynamic schema
+- used to optimise and complex join          - optimised fo scalability and 
+  and transaction                              performance
+- support rich set of datatypes              - limited set of datatypes
+- ACID (Atomicity,consistency,Isolation,     - CAP (Consistency, Availability, Partition 
+  Durability)                                  Tolerence)
+- Used in tradition buisness app             - used in bigData and real-time web app
+- 
+
+
+CAP:-
+
+Consistency: Every read receives the most recent write or an error.
+Availability:Every request receives a (non-error) response, without the guarantee that it contains the most recent write.
+Partitioning Tolerance: The system continues to operate despite an arbitrary number of messages being dropped (or delayed) by the network between nodes.
+
+
+
+  MongoDB Commands
+--------------------
+
+show databases - display all databases
+use <databasename>  - redirect to a perticular database
+show collections - to display all collections in a database
+db.<collectionName>.find () - to get all documents from a collection - [] of {}
+                               [{},{},{},..........]
+db.<collectionName>.find(condition) - array with documents which satisfy the condition 
+db.<collectionName>.findOne(condition) - single object that satisfy the condition
+db.<collectionName>.find().limit(count) - get limited documents
+db.<collectionName>.find().sort({key:1/-1}) - to limit documents while reading
+db.<collectionName>.find().InserMany([{},{}])   - insert many documents at same time
+db.<collectionName>.find().InserOne({}) - insert one document at a time
+
+Conditions Using Query Operators
+
+use sample_mflix
+
+db.movies.find( { rated: { $in: [ "PG", "PG-13" ] } } )
+
+
+-$gt /$gte / $lt /$lte 
+-$or /$and(,)
+-$set - to replace 
+-$inc(1) / $inc(-1)
+-$push - add
+-$pull - remove
+-$exists - 
+
+
+-Update
+-Delete
+-Join 
+
+
+query parameter ?
+
+
+Behaviour Subject in Angular
+-------------------------------
+
+it is an object used to share data between unrelated components in Angular
+
+behaviour usbject is added in service file . components uses it by using subscribe  if its value updated then all the components who assosiates with the service file also updtaed
+
+
+
+JWT- JSON WEB TOKEN
+---------------------
+
+libary used for authentication in client server request
+
+1-generate token in login success
+2.send the token to client
+3.client store the token for reuse until logout - localstorage
+4.client need to send the token with each request after login - header
+5.server need to check the token is valis or not befire working each request logic
+  if valid then process the logic
+  if not valid then prevent the client request from that logic
+  

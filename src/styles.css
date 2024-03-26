@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Macondo&family=Mukta:wght@200&family=Oswald:wght@200..700&family=Playfair+Display&family=Roboto:wght@100&family=Teko:wght@300&family=Yellowtail&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+span{
+    font-family: "Macondo", cursive;
+}
+
+p{
+    font-family: "Playfair Display", serif;}
+
+    .c1{
+color:green;
+    }
+
+    .c2{
+        color:red;
+            }
